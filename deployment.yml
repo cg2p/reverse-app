@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: reverse-app-config-map
   data:
-  STANDALONE: 'yes'
+  STANDALONE: 'blah'
   API_ECHO_URL: 'http://localhost:3001/api/''
