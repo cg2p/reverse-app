@@ -15,7 +15,7 @@ const { publicRuntimeConfig } = getConfig();
 
 export default function App() {
   const classes = useStyles();
-  console.log(publicRuntimeConfig.STANDALONE);
+  console.log("index page - standalone", publicRuntimeConfig.STANDALONE);
   const mode_message = publicRuntimeConfig.STANDALONE == 'yes' ? 'STANDALONE' : 'API';
     
   /* var mode_message;

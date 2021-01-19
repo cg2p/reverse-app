@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-console.log(process.env.STANDALONE)
+console.log("next config ", process.env.STANDALONE)
 
 module.exports = {
   publicRuntimeConfig: {
