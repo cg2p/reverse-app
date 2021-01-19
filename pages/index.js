@@ -15,7 +15,11 @@ const { publicRuntimeConfig } = getConfig();
 
 export default function App() {
   const classes = useStyles();
+
+  console.log("index page - process env ", process.env.STANDALONE);
+  console.log("index page - api ", process.env.API_ECHO_URL);
   console.log("index page - standalone", publicRuntimeConfig.STANDALONE);
+
   const mode_message = publicRuntimeConfig.STANDALONE == 'yes' ? 'STANDALONE' : 'API';
     
   /* var mode_message;
