@@ -53,9 +53,24 @@ class Reverse extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    
-    const url = this.state.reverseChecked ? api_echo_url + "reverse" : api_echo_url + "echo";
 
+    var inputText = this.state.textInput;
+    var outputText;
+/*
+    if (this.state.reverseChecked) {
+      outputText = inputText.split("").reverse().join("");
+    } else {
+      outputText = inputText;
+    }
+*/
+    var url;
+    if (this.state.reverseChecked) {
+      url = api_echo_url + "reverse";
+    } else {
+      url = api_echo_url + "echo";
+    }
+
+    //
     async function getEchoOrReverse(url, txt) {
       var myheaders = new Headers({
         'Content-Type': 'application/json',
@@ -71,9 +86,11 @@ class Reverse extends Component {
           body: JSON.stringify({ inputText: txt }),
         });
   
+        console.log(response);
+
         if (response.ok) {
           let data = await response.json(); 
-          return data.echo;
+          return data.outputText;
         } else {
           console.log('echo api service call failed.');
           let error = new Error(response.statusText);
@@ -86,11 +103,12 @@ class Reverse extends Component {
     };
 
     try {
-      getEchoOrReverse(url, this.state.textInput)
+      getEchoOrReverse(url, inputText)
       .then(value => 
         this.setState({
           textOutput: value
         }));
+        //this.handleEchoOrReverseResponse(value));
     } catch (error) {
       console.error(
         'Error caught outside.',
@@ -98,7 +116,8 @@ class Reverse extends Component {
       );
       this.setState({ error: error.message });
     };  
- 
+    //
+    //this.setState({textOutput: outputText });
   }
 
   render() {

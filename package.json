@@ -13,7 +13,8 @@
     "react-dom": "^16.8.0"
   },
   "scripts": {
-    "dev": "next",
+    "dev-api": "STANDALONE='false' next",
+    "dev-standalone": "STANDALONE='true' next",
     "build": "next build",
     "start": "next start"
   }

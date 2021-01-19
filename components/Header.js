@@ -28,7 +28,7 @@ export default function Header() {
           </Link>
         </nav>
         <Button href="#" color="primary" variant="outlined" className={classes.link}>
-          Login
+          Contact Us
         </Button>
       </Toolbar>
     </AppBar>     

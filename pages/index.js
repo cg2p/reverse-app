@@ -9,9 +9,21 @@ import Layout from '../components/Layout';
 import Link from '../components/Link';
 import { useStyles } from '../components/Styles';
 
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig();
+
 
 export default function App() {
   const classes = useStyles();
+  console.log(publicRuntimeConfig.STANDALONE);
+  const mode_message = publicRuntimeConfig.STANDALONE == 'yes' ? 'STANDALONE' : 'API';
+    
+  /* var mode_message;
+  if (publicRuntimeConfig.STANDALONE == 'yes') {
+    mode_message = "STANDALONE";
+  } else {
+    mode_message = "API";
+  }*/
 
   return (
     <React.Fragment>
@@ -20,10 +32,13 @@ export default function App() {
       <div className={classes.heroContent}>
       <Container maxWidth="sm">
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-            New Reverse App
+            Reverse App 
           </Typography>
           <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          Gather round to see the amazing text reversing application.
+          Gather round to see the amazing text reversing application. 
+          </Typography>
+          <Typography variant="h6" align="center" color="textSecondary" paragraph>
+          Running in {mode_message} mode.
           </Typography>
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justify="center">
