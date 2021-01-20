@@ -1,10 +1,11 @@
-require('dotenv').config();
-
-console.log("next config ", process.env.STANDALONE)
+//require('dotenv').config();
 
 module.exports = {
-  publicRuntimeConfig: {
-    STANDALONE: process.env.STANDALONE || 'yes',
+  serverRuntimeConfig: {
+    VAR_SERVER: 'on server'
+  },
+  publicRuntimeConfig: {      
+    STANDALONE: process.env.STANDALONE,  
     API_ECHO_URL: process.env.API_ECHO_URL,  
   }
 }

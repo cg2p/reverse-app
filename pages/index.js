@@ -10,17 +10,20 @@ import Link from '../components/Link';
 import { useStyles } from '../components/Styles';
 
 import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig, serverRuntimeConfig } = getConfig();
+const standalone = publicRuntimeConfig.STANDALONE;
+const var_public = serverRuntimeConfig.VAR_PUBLIC;
+
+console.log("index page - var", var_public);
 
 
 export default function App() {
   const classes = useStyles();
 
-  console.log("index page - process env ", process.env.STANDALONE);
-  console.log("index page - api ", process.env.API_ECHO_URL);
-  console.log("index page - standalone", publicRuntimeConfig.STANDALONE);
+  console.log("index page - standalone", standalone);
+  console.log("index page - var", var_public);
 
-  const mode_message = publicRuntimeConfig.STANDALONE == 'yes' ? 'STANDALONE' : 'API';
+  const mode_message = standalone == 'yes' ? 'STANDALONE' : 'API';
     
   /* var mode_message;
   if (publicRuntimeConfig.STANDALONE == 'yes') {

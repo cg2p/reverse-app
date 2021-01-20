@@ -6,15 +6,15 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.9.1",
     "clsx": "latest",
-    "dotenv": "latest",
     "next": "latest",
     "prop-types": "latest",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
   "scripts": {
-    "dev-api": "STANDALONE='false' next",
-    "dev-standalone": "STANDALONE='true' next",
+    "dev": "next",
+    "dev-api": "STANDALONE='no' next",
+    "dev-standalone": "STANDALONE='yes' next",
     "build": "next build",
     "start": "next start"
   }
