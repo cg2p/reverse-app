@@ -12,16 +12,16 @@ import { useStyles } from '../components/Styles';
 import getConfig from 'next/config'
 const { publicRuntimeConfig, serverRuntimeConfig } = getConfig();
 const standalone = publicRuntimeConfig.STANDALONE;
-const var_public = serverRuntimeConfig.VAR_PUBLIC;
+const var_server = serverRuntimeConfig.VAR_SERVER;
 
-console.log("index page - var", var_public);
+console.log("index page - var", var_server);
 
 
 export default function App() {
   const classes = useStyles();
 
   console.log("index page - standalone", standalone);
-  console.log("index page - var", var_public);
+  console.log("index page - var", var_server);
 
   const mode_message = standalone == 'yes' ? 'STANDALONE' : 'API';
     
